@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import HolaMundo from '../views/HolaMundo.vue'
-
-
 const routes = [
   {
     path: '/',
@@ -17,21 +15,22 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
-{
-  path: '/hola',
-  name: 'hola',
-  component: HolaMundo
-},
-{
-  path: '/pregunta',
-  name: 'pregunta-view',
-  component: () => import(/* webpackChunkName: "pregunta" */ '../views/PreguntaView.vue')
-},
-{
-  path: '/pokemon',
-  name: 'pokemon-view',
-  component: () => import(/* webpackChunkName: "pokemon" */ '../views/PokemonView.vue')
-}
+  {
+    // los ":" indican que es una parte variable de la ruta
+    path: '/hola-mundo/:nombre_de_la_parte_variable',
+    name: 'hola-mundo',
+    component: HolaMundo
+  },
+  {
+    path: '/pregunta',
+    name: 'pregunta-view',
+    component: () => import(/* webpackChunkName: "pregunta" */ '../views/PreguntaView.vue')
+  },
+  {
+    path: '/pokemon',
+    name: 'pokemon-view',
+    component: () => import(/* webpackChunkName: "pokemon" */ '../views/PokemonView.vue')
+  }
 ]
 
 const router = createRouter({
